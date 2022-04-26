@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
-using System; 
+using System;
+using TMPro;
 
 public class CharacterMover2D : MonoBehaviour
 {
@@ -22,10 +23,14 @@ public class CharacterMover2D : MonoBehaviour
 	private Vector3 m_Velocity = Vector3.zero;
 	[SerializeField] private AudioClip m_AudioClip;
 	private AudioSource m_AudioSource;
+	public TextMeshProUGUI coinScore;
+	public TextMeshProUGUI healthScore;
 	[Header("Events")]
 	[Space]
 
 	public UnityEvent OnLandEvent;
+	int coins = 0;
+	int health = 0;
 
 	[System.Serializable]
 	public class BoolEvent : UnityEvent<bool> { }
@@ -154,18 +159,24 @@ public class CharacterMover2D : MonoBehaviour
 		}
 		if (collider.gameObject.CompareTag("Collectible"))
 		{
-			print("Collectible");
+			CollectHeart(collider);
         }
 	}
 
 	private void CollectCoin(Collider2D coinCollider)
 	{
-		print("collided");
-		//Debug.Log("collided");
-		//coins++;
-		//coinsCollectedLabel.text = coins.ToString();
+		coins++;
+		print(coins);
+		coinScore.text = " " + coins;
 		DestroyObject(coinCollider.gameObject);
 		m_AudioSource.Play();
-		//AudioSource.PlayClipAtPoint(m_AudioClip, transform.position, 10);
+	}
+
+	private void CollectHeart(Collider2D heartCollider)
+    {
+		health++;
+		print(health);
+		healthScore.text = " " + health;
+		DestroyObject(heartCollider.gameObject);
 	}
 }
