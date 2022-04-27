@@ -166,7 +166,7 @@ public class CharacterMover2D : MonoBehaviour
 		gameOverText.SetActive(true);
 		restartButton.SetActive(true);
 		quitButton.SetActive(true);
-		Time.timeScale = 0;
+		Time.timeScale = 0f;
 	}
 
 	private void OnTriggerEnter2D(Collider2D collider)
@@ -179,9 +179,19 @@ public class CharacterMover2D : MonoBehaviour
 		{
 			CollectHeart(collider);
         }
-		if (collider.gameObject.CompareTag("FallBarrier") || collider.gameObject.CompareTag("Enemy"))
+		if (collider.gameObject.CompareTag("FallBarrier"))
 		{
 			print("Collided");
+			StartCoroutine(waiter());
+		}
+		if (collider.gameObject.CompareTag("Enemy"))
+		{
+			print("Collided");
+			health--;
+			healthScore.text = " " + health;
+		}
+		if(health == 0)
+        {
 			StartCoroutine(waiter());
 		}
 	}
