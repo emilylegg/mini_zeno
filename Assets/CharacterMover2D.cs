@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System;
 using TMPro;
+using System.Collections;
 
 public class CharacterMover2D : MonoBehaviour
 {
@@ -38,6 +39,8 @@ public class CharacterMover2D : MonoBehaviour
 	public BoolEvent OnCrouchEvent;
 	private bool m_wasCrouching = false;
 
+	public GameObject gameOverText, restartButton;
+
 	private void Awake()
 	{
 		m_AudioSource = GetComponent<AudioSource>();
@@ -48,6 +51,9 @@ public class CharacterMover2D : MonoBehaviour
 
 		if (OnCrouchEvent == null)
 			OnCrouchEvent = new BoolEvent();
+
+		gameOverText.SetActive(false);
+		restartButton.SetActive(false);
 	}
 
 	private void FixedUpdate()
@@ -151,6 +157,19 @@ public class CharacterMover2D : MonoBehaviour
 		transform.Rotate(0f,180f,0f);
 	}
 
+	public IEnumerator waiter()
+	{
+		//m_Anim.Play("RobotBoyDies");
+
+		//Wait for 1.14 seconds
+		yield return new WaitForSeconds(1.14f);
+
+		print("collided with object causing death");
+		gameOverText.SetActive(true);
+		restartButton.SetActive(true);
+		Time.timeScale = 0;
+	}
+
 	private void OnTriggerEnter2D(Collider2D collider)
 	{
 		if (collider.gameObject.CompareTag("Coins"))
@@ -161,6 +180,10 @@ public class CharacterMover2D : MonoBehaviour
 		{
 			CollectHeart(collider);
         }
+		if (collider.gameObject.CompareTag("FallBarrier"))
+		{
+			StartCoroutine(waiter());
+		}
 	}
 
 	private void CollectCoin(Collider2D coinCollider)
