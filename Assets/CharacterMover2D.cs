@@ -39,7 +39,7 @@ public class CharacterMover2D : MonoBehaviour
 	public BoolEvent OnCrouchEvent;
 	private bool m_wasCrouching = false;
 
-	public GameObject gameOverText, restartButton;
+	public GameObject gameOverText, restartButton, quitButton;
 
 	private void Awake()
 	{
@@ -54,6 +54,7 @@ public class CharacterMover2D : MonoBehaviour
 
 		gameOverText.SetActive(false);
 		restartButton.SetActive(false);
+		quitButton.SetActive(false);
 	}
 
 	private void FixedUpdate()
@@ -164,6 +165,7 @@ public class CharacterMover2D : MonoBehaviour
 		print("collided with object causing death");
 		gameOverText.SetActive(true);
 		restartButton.SetActive(true);
+		quitButton.SetActive(true);
 		Time.timeScale = 0;
 	}
 
