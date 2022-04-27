@@ -159,10 +159,7 @@ public class CharacterMover2D : MonoBehaviour
 
 	public IEnumerator waiter()
 	{
-		//m_Anim.Play("RobotBoyDies");
-
-		//Wait for 1.14 seconds
-		yield return new WaitForSeconds(1.14f);
+		yield return new WaitForSeconds(0.84f);
 
 		print("collided with object causing death");
 		gameOverText.SetActive(true);
@@ -180,8 +177,9 @@ public class CharacterMover2D : MonoBehaviour
 		{
 			CollectHeart(collider);
         }
-		if (collider.gameObject.CompareTag("FallBarrier"))
+		if (collider.gameObject.CompareTag("FallBarrier") || collider.gameObject.CompareTag("Enemy"))
 		{
+			print("Collided");
 			StartCoroutine(waiter());
 		}
 	}
