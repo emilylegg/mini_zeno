@@ -31,7 +31,7 @@ public class CharacterMover2D : MonoBehaviour
 
 	public UnityEvent OnLandEvent;
 	int coins = 0;
-	int health = 0;
+	int health = 3;
 
 	[System.Serializable]
 	public class BoolEvent : UnityEvent<bool> { }

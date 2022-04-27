@@ -128,7 +128,6 @@ GameObject:
   - component: {fileID: 8952101956566310983}
   - component: {fileID: 390356639121055246}
   - component: {fileID: 1403590888658012366}
-  - component: {fileID: 4454896323392214683}
   m_Layer: 0
   m_Name: walker
   m_TagString: Untagged
@@ -202,17 +201,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4454896323392214683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8407134603223486076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a0146ea857426847adbcbbbe0ab20a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  groundDetection: {fileID: 1928038765762633264}
