@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1077585227453792341}
   - component: {fileID: 6879202110247922459}
   - component: {fileID: 1390882158551180744}
+  - component: {fileID: 6518074095854443091}
   m_Layer: 0
   m_Name: pew
   m_TagString: Untagged
@@ -29,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077585227453792337}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.359, y: -2.6234, z: 0}
-  m_LocalScale: {x: 0.32982627, y: 0.2521291, z: 1}
+  m_LocalPosition: {x: -9.6618, y: -2.5566, z: 0}
+  m_LocalScale: {x: 1.3319621, y: 1.0217011, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -137,6 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37d6cbe05ff41ee4f90b1324cfdd82df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 40
   speed: 20
   rb: {fileID: 1077585227453792336}
 --- !u!82 &1390882158551180744
@@ -149,7 +151,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2ad1efba70f5c4de8882dcff8dc311d3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 16bf7d82282674158a0c8ebae41d0a34, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -235,3 +237,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!210 &6518074095854443091
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077585227453792337}
+  m_Enabled: 1
+  m_SortingLayerID: -174272595
+  m_SortingLayer: 4
+  m_SortingOrder: 0

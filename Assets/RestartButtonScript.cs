@@ -22,4 +22,9 @@ public class RestartButtonScript : MonoBehaviour
         SceneManager.LoadScene("level1");
         Time.timeScale = 1;
     }
+
+    public void quitGame()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }
